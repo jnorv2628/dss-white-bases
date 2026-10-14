@@ -26,31 +26,74 @@ def hex_rgb(h):
     return np.array([int(h[i:i + 2], 16) for i in (0, 2, 4)], dtype=np.float32)
 
 
-def garment_mask(rgb, tol):
-    """Garment = everything enclosed by the garment outline. The backdrop and its soft floor shadow are smooth
-    (no sharp edges) and connect to the image border, so they are found by flood-filling the low-gradient area
-    from the border; the garment is what is left. `tol` is the edge sensitivity (lower = catches fainter outlines)."""
+def garment_mask(rgb, tol=None, ymax=None):
+    """GrabCut at 1/3 scale (fast), seeded from the backdrop colour, then a brightness rescue so lit white
+    fabric at the hood collar / shoulders is not dropped, then upsampled with a soft edge."""
+    import cv2
+    from scipy import ndimage as ndi
+    full = cv2.cvtColor(rgb.astype(np.uint8), cv2.COLOR_RGB2BGR)
+    FH, FW = full.shape[:2]
+    img = cv2.resize(full, (FW // 3, FH // 3), interpolation=cv2.INTER_AREA)
+    H, W = img.shape[:2]
+    lab = cv2.cvtColor(img, cv2.COLOR_BGR2LAB).astype(np.float32)
+    ring = np.zeros((H, W), bool); ring[:16] = ring[:, :16] = ring[:, -16:] = True
+    bgc = np.median(lab[ring], 0)
+    dist = np.linalg.norm(lab - bgc, axis=2)
+    m = np.full((H, W), cv2.GC_PR_BGD, np.uint8)
+    m[dist > 6] = cv2.GC_PR_FGD
+    m[ring] = cv2.GC_BGD
+    m[ndi.binary_erosion(ndi.binary_fill_holes(dist > 14), iterations=8)] = cv2.GC_FGD
+    bg = np.zeros((1, 65)); fg = np.zeros((1, 65))
+    cv2.grabCut(img, m, None, bg, fg, 6, cv2.GC_INIT_WITH_MASK)
+    k = (m == cv2.GC_FGD) | (m == cv2.GC_PR_FGD)
+    k = ndi.binary_fill_holes(k)
+    lb, n = ndi.label(k)
+    if n == 0:
+        raise SystemExit("No garment found.")
+    k = lb == (1 + int(np.argmax(ndi.sum(k, lb, range(1, n + 1)))))
+    # rescue: bright (lit white fabric) pixels hugging the mask that grabcut dropped
+    L = lab[..., 0]
+    # backdrop brightness model (quadratic fit on the border ring); fabric lit brighter than the backdrop is garment
+    yy, xx = np.mgrid[0:H, 0:W].astype(np.float32)
+    A = np.stack([np.ones_like(xx), xx / W, yy / H, (xx / W) ** 2, (yy / H) ** 2, (xx / W) * (yy / H)], -1)
+    co = np.linalg.lstsq(A[ring], L[ring], rcond=None)[0]
+    bgL = A @ co
+    B = lab[..., 2]
+    cb = np.linalg.lstsq(A[ring], B[ring], rcond=None)[0]
+    bgB = A @ cb                      # garment is neutral/cool, backdrop is warm
+    near = ndi.binary_dilation(k, iterations=14)
+    k = k | (near & ((L > bgL + 4) | (B < bgB - 2.5)))
+    k = ndi.binary_closing(k, iterations=3); k = ndi.binary_fill_holes(k)
+    k = ndi.binary_opening(k, iterations=2)
+    if ymax:                      # floor / label below the garment hem
+        k[int(ymax / 3):] = False
+        k = ndi.binary_opening(k, iterations=3)
+    mu = cv2.resize(k.astype(np.uint8) * 255, (FW, FH), interpolation=cv2.INTER_LINEAR)
+    mu = cv2.GaussianBlur(mu, (0, 0), 4.0)
+    edge = np.concatenate([rgb[0], rgb[-1], rgb[:, 0], rgb[:, -1]])
+    return (mu > 127).astype(np.uint8) * 255, np.median(edge, axis=0)
+
+
+def garment_mask_edges(rgb, tol=10):
+    """Edge-based mask: the smooth backdrop connects to the border; the garment is what its outline encloses.
+    Better than grabcut when the fabric is nearly the same colour as the backdrop (e.g. the cream front base)."""
     from scipy import ndimage as ndi
     lum = rgb @ np.array([0.299, 0.587, 0.114], dtype=np.float32)
     lum = ndi.gaussian_filter(lum, 1.0)
     gy, gx = np.gradient(lum)
-    mag = np.hypot(gx, gy)
-    edges = mag > (tol / 4.0)
-    edges = ndi.binary_dilation(edges, iterations=3)           # seal small gaps in faint outlines
+    edges = np.hypot(gx, gy) > (tol / 4.0)
+    edges = ndi.binary_dilation(edges, iterations=3)
     lab, n = ndi.label(~edges)
     border = np.unique(np.concatenate([lab[0], lab[-1], lab[:, 0], lab[:, -1]]))
-    bg = np.isin(lab, border[border > 0])
-    keep = ~bg
-    keep = ndi.binary_erosion(keep, iterations=3)               # undo the dilation
+    keep = ~np.isin(lab, border[border > 0])
+    keep = ndi.binary_erosion(keep, iterations=3)
     keep = ndi.binary_fill_holes(keep)
-    lab2, n2 = ndi.label(keep)
+    l2, n2 = ndi.label(keep)
     if n2 == 0:
-        raise SystemExit("No garment found. Try a smaller --tol.")
-    sizes = ndi.sum(keep, lab2, range(1, n2 + 1))
-    keep = lab2 == (1 + int(np.argmax(sizes)))
+        raise SystemExit("No garment found.")
+    keep = l2 == (1 + int(np.argmax(ndi.sum(keep, l2, range(1, n2 + 1)))))
     keep = ndi.binary_dilation(keep, iterations=1)
-    edge = np.concatenate([rgb[0], rgb[-1], rgb[:, 0], rgb[:, -1]])
-    return keep.astype(np.uint8) * 255, np.median(edge, axis=0)
+    return keep.astype(np.uint8) * 255, None
 
 
 def recolor(img, mask, target, strength=1.0):
@@ -60,7 +103,9 @@ def recolor(img, mask, target, strength=1.0):
     g = lum[np.asarray(mask) > 0]
     ref = np.percentile(g, 96)  # brightest lit fabric maps to the exact target color
     ratio = np.clip(lum / ref, 0, 1.08)[..., None]
-    out_g = target[None, None, :] * ratio
+    tl = float(target @ np.array([0.299, 0.587, 0.114], dtype=np.float32)) / 255.0
+    lift = 46.0 * (1.0 - tl) ** 3  # dark garments: keep folds/texture visible
+    out_g = target[None, None, :] * ratio + (ratio ** 2.2) * lift
     out_g = np.clip(out_g, 0, 255)
     out = rgb * (1 - m * strength) + out_g * (m * strength)
     return Image.fromarray(out.astype(np.uint8))
