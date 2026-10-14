@@ -1,0 +1,34 @@
+name: DSS mockup prompts
+# Run from the GitHub Actions tab (or the GitHub phone app): pick the item, colors and mode.
+on:
+  workflow_dispatch:
+    inputs:
+      item:   { description: "Item (tee, hoodie, sweatshirt, polo, knit, flannel, w-tee, dog-tee, dog-hoodie ...)", required: true, default: "tee" }
+      colors: { description: "Color codes, comma separated (BLK,BNE,CAM,NVY,CHR,ESP,OLV,BLS ...)", required: true, default: "BLK,BNE,ESP,OLV,CHR,BLS" }
+      mode:   { description: "recolor | model | pair | back", required: true, default: "model" }
+      tier:   { description: "A Activé | L La Rue | N Noir | X La Rue Limited", required: true, default: "A" }
+      with_dog: { description: "model mode: add the matching dog (true/false)", required: false, default: "true" }
+      art:    { description: "back mode: artwork description", required: false, default: "" }
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Generate prompts
+        env:
+          ITEM: ${{ inputs.item }}
+          COLORS: ${{ inputs.colors }}
+          MODE: ${{ inputs.mode }}
+          TIER: ${{ inputs.tier }}
+          WITH_DOG: ${{ inputs.with_dog }}
+          ART: ${{ inputs.art }}
+        run: |
+          args=(--item "$ITEM" --colors "$COLORS" --mode "$MODE" --tier "$TIER" --out out)
+          if [ "$WITH_DOG" = "true" ]; then args+=(--with-dog); fi
+          if [ -n "$ART" ]; then args+=(--art "$ART"); fi
+          python3 mockup.py "${args[@]}"
+          cat out/*.md >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        with: { name: dss-mockups, path: out/ }
