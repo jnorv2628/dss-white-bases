@@ -169,7 +169,7 @@ def main():
     ap = argparse.ArgumentParser(description="DSS mockup prompt generator")
     ap.add_argument("--item", help="; ".join(ITEMS))
     ap.add_argument("--colors", default="BLK", help="comma list of color codes, e.g. BLK,BNE,CAM")
-    ap.add_argument("--mode", default="recolor", choices=["recolor", "model", "pair", "back"])
+    ap.add_argument("--mode", default="white", choices=["white", "recolor", "model", "pair", "back"])
     ap.add_argument("--tier", default="A", choices=list(TIERS), help="A Activé, L La Rue, N Noir, X La Rue Limited")
     ap.add_argument("--with-dog", action="store_true", help="model mode: add the matching dog")
     ap.add_argument("--model", help="model mode: override the model description")
@@ -194,7 +194,17 @@ def main():
     for c in colors:
         w = scope_warning(c, a.tier)
         if w: warns.append(w)
-    if a.mode == "model":
+    if a.mode == "white":
+        # Meta makes WHITE only. Every other color is made by recolor.py from the approved white image.
+        rows.append(recolor(a.item, "WHT", a.tier))
+        if a.art:
+            rows.append(back(a.item, "WHT", a.tier, a.art, a.width))
+        colors = ["WHT"]
+    elif any(c != "WHT" for c in colors) and a.mode != "model":
+        warns.append("Meta runs WHITE only. For other colors use: python recolor.py --in <approved white image> --colors " + ",".join(colors))
+    if a.mode == "white":
+        pass
+    elif a.mode == "model":
         hero = colors[0]
         rows.append(model_hero(a.item, hero, a.tier, a.with_dog, a.model))
         for c in colors[1:]:

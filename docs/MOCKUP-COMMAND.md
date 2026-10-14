@@ -21,3 +21,13 @@ Run workflow -> fill in item, colors, mode, tier. The prompts show on the run su
 ## Change the look of every prompt
 Edit the STANDARD block at the top of `mockup.py` (backdrop, light, mark sizes, colors). Never edit a prompt by hand.
 Color codes come from DSS-COLOR-MASTER. The script warns when a color is scoped to a different tier.
+
+## White only in Meta, colors on our side (v3.1)
+
+Meta makes ONLY the white mockups. Every other color is made by `recolor.py` from the approved white image.
+
+1. `python mockup.py --item w-bralette --mode white --art "<back artwork>" --width "~7 in"` writes the white front + back prompts (default mode).
+2. Run those in Meta, approve the white images.
+3. `python recolor.py --in <approved-white-front.jpg> --colors ALL --out out/colors` makes every color-master color with the same folds, texture and tonal mark. Check the `__MASK-CHECK.jpg` it writes (red = garment) before using the files.
+
+Limits: tonal marks recolor with the fabric. Fixed-color graphics (e.g. white drip lettering on a dark garment) must be placed after recoloring. Enclosed backdrop gaps (inside strap loops) may need `--mask`.
