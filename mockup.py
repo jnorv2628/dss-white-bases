@@ -63,6 +63,7 @@ ITEMS = {
     "w-sweatshirt":("a women's crewneck sweatshirt", "human", "BLANK-W-CREW-SWEAT-WHITE-v1.jpg", True, "dog-sweatshirt"),
     "w-polo":      ("a women's pique polo", "human", f"BASE-POLO-W-FRONT-{VER}.jpg", False, "dog-polo"),
     "w-knit":      ("a women's cashmere crew sweater", "human", "BLANK-W-CASH-CREW-WHITE-v1.jpg", False, "dog-knit"),
+    "w-bralette":  ("a women's wrap bralette", "human", "BLANK-W-BRALETTE-WRAP-WHITE-v1.jpg", False, None),
     "dog-hoodie":  ("a dog hoodie", "dog", "BASE-D2-FRONT-v1.jpg", False, None),
     "dog-tee":     ("a dog tee", "dog", "BASE-D1-FRONT-v1.jpg", False, None),
     "dog-sweatshirt": ("a dog crewneck sweatshirt", "dog", f"BASE-DOG-CREW-FRONT-{VER}.jpg", False, None),
@@ -70,6 +71,9 @@ ITEMS = {
     "dog-knit":    ("a dog sweater", "dog", f"BASE-DOG-KNIT-FRONT-{VER}.jpg", False, None),
     "dog-flannel": ("a dog flannel", "dog", f"BASE-DOG-FLANNEL-FRONT-{VER}.jpg", False, None),
 }
+# where the one tonal Frenchie goes when an item has no left chest, and how the model shot is cropped
+MARK_SPOT = {"w-bralette": "the wide ribbed band at the bottom front, centered"}
+CROP = {"w-bralette": "waist-up crop from the hips up"}
 SLEEVE_TEXT = ("On the left upper sleeve add stitched tonal text, DOGGY STYLE SOCIETY on one line and LOS ANGELES "
                "below it, in thread matching the fabric, fully visible with clear margin on both sides, no patch.")
 # ------------------------------------------------------------------ END STANDARD
@@ -88,7 +92,7 @@ def scope_warning(color, tier):
     s = scope.lower()
     if s == "all tiers" or TIERS[tier].lower() in s.replace("/", " ").split("/") or TIERS[tier].lower() in s:
         return ""
-    if s.startswith("apparel"):
+    if s.startswith("apparel") or "garments" in s:
         return ""
     return f"WARNING: {name} is scoped to '{scope}' in DSS-COLOR-MASTER; check it is allowed for {TIERS[tier]}."
 
@@ -100,7 +104,7 @@ def recolor(key, color, tier):
     st = SLEEVE_TEXT if sleeve else "No sleeve text, no patch."
     p = (f"Image 1 is {desc} flat lay (approved white base). Image 2 is the exact embroidered French bulldog. "
          f"Change ONLY the fabric color to {cname} {chex}, including {trim}. Keep the pose, folds, crop and lighting "
-         f"identical to image 1, and keep the background as the same {BG_SHORT}. On the left chest add the French bulldog "
+         f"identical to image 1, and keep the background as the same {BG_SHORT}. On {MARK_SPOT.get(key, 'the left chest')} add the French bulldog "
          "from image 2 copied EXACTLY, do not redraw or change it: seated, crown, collar, same proportions. Make it tonal "
          f"embroidery in thread the same color as the fabric, {mark_size(kind)}, the size of a polo pony. Ignore any "
          f"background in image 2. {st} Back and everything else unchanged.")
@@ -118,9 +122,9 @@ def model_hero(key, color, tier, with_dog, model):
         dog = (f" A French Bulldog sits upright at the model's knee wearing {ddesc} in the same {cname}, with the same "
                f"tonal embroidered Frenchie mark ({DOG_MARK}).")
     p = (f"Ultra-clean e-commerce product photograph in the style of James Perse. {who.capitalize()}, neutral expression, "
-         "standing straight on, arms relaxed at sides, full-length crop from mid-thigh up, looking at the camera. "
+         f"standing straight on, arms relaxed at sides, {CROP.get(key, 'full-length crop from mid-thigh up')}, looking at the camera. "
          f"Wearing {desc} in {cname} {chex}. Front is completely clean except one small tonal embroidered crowned Frenchie "
-         f"on the left chest, {HUMAN_MARK}, the size of a polo pony, thread the same color as the fabric. No graphics, no text "
+         f"on {MARK_SPOT.get(key, 'the left chest')}, {HUMAN_MARK}, the size of a polo pony, thread the same color as the fabric. No graphics, no text "
          f"on the front.{dog} Background: {BACKDROP}, {LIGHT}. Shot on 85mm lens, true-to-life color, sharp fabric texture. {TAIL}")
     return code(tier, key, color, "MODEL-HERO"), "(text only)", "", p
 
@@ -205,7 +209,7 @@ def main():
         for cd, in1, in2, _ in rows:
             for fn in [x.strip() for x in (in1 + "|" + in2).split("|") if x.strip().lower().endswith((".jpg", ".png"))]:
                 if not os.path.exists(os.path.join(a.bases, fn)) and not fn.startswith(("A-", "L-", "N-", "X-")):
-                    warns.append(f"MISSING INPUT in {a.bases}/: {fn} (needed for {cd}); create/approve this base first.")
+                    warns.append(f"MISSING INPUT in {a.bases}/: {fn}  (create/approve this base first)")
         warns = list(dict.fromkeys(warns))
     os.makedirs(a.out, exist_ok=True)
     stem = f"mockups-{a.item}-{a.mode}"
