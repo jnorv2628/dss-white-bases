@@ -26,7 +26,7 @@ def hex_rgb(h):
     return np.array([int(h[i:i + 2], 16) for i in (0, 2, 4)], dtype=np.float32)
 
 
-def garment_mask(rgb, tol=None, ymax=None):
+def garment_mask(rgb, tol=None, ymax=None, grow=0):
     """GrabCut at 1/3 scale (fast), seeded from the backdrop colour, then a brightness rescue so lit white
     fabric at the hood collar / shoulders is not dropped, then upsampled with a soft edge."""
     import cv2
@@ -65,6 +65,8 @@ def garment_mask(rgb, tol=None, ymax=None):
     k = k | (near & ((L > bgL + 4) | (B < bgB - 2.5)))
     k = ndi.binary_closing(k, iterations=3); k = ndi.binary_fill_holes(k)
     k = ndi.binary_opening(k, iterations=2)
+    if grow:
+        k = ndi.binary_dilation(k, iterations=grow)
     if ymax:                      # floor / label below the garment hem
         k[int(ymax / 3):] = False
         k = ndi.binary_opening(k, iterations=3)
@@ -118,6 +120,8 @@ def main():
     ap.add_argument("--out", default="out/colors")
     ap.add_argument("--tol", type=int, default=10, help="outline sensitivity (lower = catches fainter outlines, raise if the cut-out leaks into the backdrop)")
     ap.add_argument("--mask", help="optional hand-made mask PNG (white = garment) to use instead of auto")
+    ap.add_argument("--ymax", type=int, help="ignore everything below this row (floor/label under the hem)")
+    ap.add_argument("--grow", type=int, default=0, help="expand the cut-out by N small steps if a lit edge is being missed")
     ap.add_argument("--name", help="file stem for outputs (default: input file name)")
     a = ap.parse_args()
 
@@ -126,7 +130,7 @@ def main():
     if a.mask:
         mask = Image.open(a.mask).convert("L").resize(img.size)
     else:
-        arr, bg = garment_mask(rgb, a.tol)
+        arr, bg = garment_mask(rgb, a.tol, a.ymax, a.grow)
         mask = Image.fromarray(arr)
     os.makedirs(a.out, exist_ok=True)
     stem = a.name or os.path.splitext(os.path.basename(a.src))[0]
