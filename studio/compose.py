@@ -23,7 +23,7 @@ from mockup import COLORS
 BASES = {  # garment -> {view: base file}
     "hoodie": {"front": "BLANK-M-HOODIE-WHITE-v1.jpg", "back": "BLANK-M-HOODIE-WHITE-BACK-v1.jpg"},
     "zip-hoodie": {"front": "BLANK-M-ZIP-HOODIE-WHITE-v1.jpg", "back": "BLANK-M-ZIP-HOODIE-WHITE-BACK-v1.jpg"},
-    "tee": {"front": "BLANK-M-TEE-CREW-WHITE-v1.jpg", "back": "BLANK-M-TEE-CREW-WHITE-BACK-v1.jpg"},
+    "tee": {"front": "BLANK-M-TEE-CREW-WHITE-v2.jpg", "back": "BLANK-M-TEE-CREW-WHITE-BACK-v2.jpg"},
     "w-tee": {"front": "BLANK-W-TEE-CLASSIC-WHITE-v1.jpg", "back": "BLANK-W-TEE-CLASSIC-WHITE-BACK-v1.jpg"},
     "ls-tee": {"front": "BLANK-M-LS-CREW-WHITE-v1.jpg", "back": "BLANK-M-LS-CREW-WHITE-BACK-v1.jpg"},
     "dog-tee": {"front": "BASE-D1-FRONT-v1.jpg", "back": "BASE-D1-BACK-v1.jpg"},
