@@ -1,0 +1,70 @@
+{
+  "handle": "asdms-tee",
+  "design": "ASDMS2",
+  "garment": "tee",
+  "images": [
+    {
+      "file": "01-back-BLK.jpg",
+      "view": "back",
+      "color": "BLK",
+      "color_name": "Black",
+      "alt": "ASDMS2 tee, black, back view"
+    },
+    {
+      "file": "02-back-BNE.jpg",
+      "view": "back",
+      "color": "BNE",
+      "color_name": "Bone",
+      "alt": "ASDMS2 tee, bone, back view"
+    },
+    {
+      "file": "03-back-WHT.jpg",
+      "view": "back",
+      "color": "WHT",
+      "color_name": "White",
+      "alt": "ASDMS2 tee, white, back view"
+    },
+    {
+      "file": "04-back-ESP.jpg",
+      "view": "back",
+      "color": "ESP",
+      "color_name": "Espresso",
+      "alt": "ASDMS2 tee, espresso, back view"
+    },
+    {
+      "file": "05-back-WIN.jpg",
+      "view": "back",
+      "color": "WIN",
+      "color_name": "Wine",
+      "alt": "ASDMS2 tee, wine, back view"
+    },
+    {
+      "file": "06-back-PLM.jpg",
+      "view": "back",
+      "color": "PLM",
+      "color_name": "Plum",
+      "alt": "ASDMS2 tee, plum, back view"
+    },
+    {
+      "file": "07-back-OLV.jpg",
+      "view": "back",
+      "color": "OLV",
+      "color_name": "Olive",
+      "alt": "ASDMS2 tee, olive, back view"
+    },
+    {
+      "file": "08-back-CHR.jpg",
+      "view": "back",
+      "color": "CHR",
+      "color_name": "Charcoal",
+      "alt": "ASDMS2 tee, charcoal, back view"
+    },
+    {
+      "file": "09-back-BLS.jpg",
+      "view": "back",
+      "color": "BLS",
+      "color_name": "Blush",
+      "alt": "ASDMS2 tee, blush, back view"
+    }
+  ]
+}
