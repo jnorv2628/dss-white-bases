@@ -30,16 +30,17 @@ TIERS = {
 COLOR_WORDS = {"BLK": "Black", "WHT": "White"}
 
 
-def description(title, garment, tier, tagline, colors, extra=""):
+def description(title, garment, tier, tagline, colors, extra="", front_mark=False):
     g = GARMENTS[garment]; tname, tfab = TIERS[tier]
     cn = ", ".join(colors)
     bullets = [
         f"{tname} tier. {tfab}",
         g["fit"],
-        "Graphic printed on the back. The front stays clean, with one small tonal crowned Frenchie at the chest.",
+        ("Graphic printed on the back. The front stays clean, with one small tonal crowned Frenchie at the chest."
+         if front_mark else "Graphic printed on the back. The front stays clean."),
         f"Available in {cn}.",
         "Made to order for you. Allow extra time before it ships; you will get tracking when it does.",
-        "Sizing: " + ", ".join(g["sizes"]) + ". See the size guide below.",
+        "Sizes: " + ", ".join(g["sizes"]) + ".",
     ]
     lis = "".join(f"<li>{b}</li>" for b in bullets)
     return (f"<p>{tagline}</p><ul>{lis}</ul>{extra}"

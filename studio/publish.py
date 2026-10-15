@@ -42,7 +42,7 @@ for c in colors:
                          "inventoryItem": {"tracked": False, "requiresShipping": True}})
 payload = {"title": a.title, "handle": a.handle, "vendor": "Doggy Style Society", "productType": g["ptype"],
            "status": a.status, "tags": ["DSS", TIERS[a.tier][0], a.capsule, g["label"]],
-           "descriptionHtml": description(a.title, a.garment, a.tier, a.tagline, names),
+           "descriptionHtml": description(a.title, a.garment, a.tier, a.tagline, names, front_mark=any(i["view"] == "front" for i in imgs)),
            "productOptions": [{"name": "Color", "values": [{"name": n} for n in names]},
                               {"name": "Size", "values": [{"name": s} for s in g["sizes"]]}],
            "files": files, "variants": variants}
