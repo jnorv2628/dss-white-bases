@@ -27,6 +27,9 @@ TIERS = {
     "L": ("La Rue", "A heavier, structured fabric with a premium hand."),
     "N": ("Noir", "Our heaviest, most refined fabric, finished with tonal embroidery."),
 }
+# Deposit pieces (50% now, balance before shipping) - NOT the default; everything else is paid in full.
+DEPOSIT_CATEGORIES = ["cashmere knits", "wool coats", "belts", "shoes"]
+FULFILLMENT_WINDOW = "2 to 3 weeks"
 COLOR_WORDS = {"BLK": "Black", "WHT": "White"}
 
 
@@ -39,7 +42,7 @@ def description(title, garment, tier, tagline, colors, extra="", front_mark=Fals
         ("Graphic printed on the back. The front stays clean, with one small tonal crowned Frenchie at the chest."
          if front_mark else "Graphic printed on the back. The front stays clean."),
         f"Available in {cn}.",
-        "Made to order for you. Allow extra time before it ships; you will get tracking when it does.",
+        "Made to order for you. Delivered within 2 to 3 weeks, and you get tracking the moment it ships.",
         "Sizes: " + ", ".join(g["sizes"]) + ".",
     ]
     lis = "".join(f"<li>{b}</li>" for b in bullets)
