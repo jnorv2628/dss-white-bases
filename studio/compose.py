@@ -22,6 +22,7 @@ from mockup import COLORS
 
 BASES = {  # garment -> {view: base file}
     "hoodie": {"front": "BLANK-M-HOODIE-WHITE-v1.jpg", "back": "BLANK-M-HOODIE-WHITE-BACK-v1.jpg"},
+    "dog-hoodie-v2": {"front": "BASE-D2-FRONT-v2.jpg", "back": "BASE-D2-BACK-v2.jpg"},
     "hoodie-v2": {"front": "BLANK-M-HOODIE-WHITE-v2.jpg", "back": "BLANK-M-HOODIE-WHITE-BACK-v2.jpg"},
     "zip-hoodie": {"front": "BLANK-M-ZIP-HOODIE-WHITE-v1.jpg", "back": "BLANK-M-ZIP-HOODIE-WHITE-BACK-v1.jpg"},
     "tee": {"front": "BLANK-M-TEE-CREW-WHITE-v2.jpg", "back": "BLANK-M-TEE-CREW-WHITE-BACK-v2.jpg"},
@@ -60,6 +61,8 @@ def place(im, art, box, color_hex, ink, shade):
     if ink == "auto":                               # monochrome: recolor ink for contrast
         ink_rgb = np.array(LIGHT_INK if L < 0.5 else DARK_INK, dtype=np.float32)
         rgb = np.broadcast_to(ink_rgb, rgb.shape).copy()
+    elif ink == "gold":                             # embroidered-gold look: true gold on dark, deeper bronze on light
+        if L >= 0.5: rgb = rgb * np.array([0.60, 0.50, 0.38], dtype=np.float32) / 0.82
     elif ink == "tonal":
         t = np.array(hex_rgb(color_hex), dtype=np.float32)
         rgb = np.broadcast_to(np.clip(t * (1.28 if L < 0.5 else 0.86) + (10 if L < 0.5 else 0), 0, 255), rgb.shape).copy()
@@ -113,7 +116,7 @@ if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--design", required=True); ap.add_argument("--handle", required=True)
     ap.add_argument("--views", default="back,front"); ap.add_argument("--colors", default="BLK,WHT")
-    ap.add_argument("--ink", default="auto", choices=["auto", "fixed", "tonal"])
+    ap.add_argument("--ink", default="auto", choices=["auto", "fixed", "tonal", "gold"])
     ap.add_argument("--garment", default="hoodie")
     a = ap.parse_args()
     build(a.design, a.handle, a.views.split(","), a.colors.split(","), a.ink, a.garment)
