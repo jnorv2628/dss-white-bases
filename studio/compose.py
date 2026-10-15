@@ -26,6 +26,8 @@ BASES = {  # garment -> {view: base file}
     "tee": {"front": "BLANK-M-TEE-CREW-WHITE-v1.jpg", "back": "BLANK-M-TEE-CREW-WHITE-BACK-v1.jpg"},
     "w-tee": {"front": "BLANK-W-TEE-CLASSIC-WHITE-v1.jpg", "back": "BLANK-W-TEE-CLASSIC-WHITE-BACK-v1.jpg"},
     "ls-tee": {"front": "BLANK-M-LS-CREW-WHITE-v1.jpg", "back": "BLANK-M-LS-CREW-WHITE-BACK-v1.jpg"},
+    "dog-tee": {"front": "BASE-D1-FRONT-v1.jpg", "back": "BASE-D1-BACK-v1.jpg"},
+    "dog-hoodie": {"front": "BASE-D2-FRONT-v1.jpg", "back": "BASE-D2-BACK-v1.jpg"},
     "sweatshirt": {"front": "BLANK-M-CREW-SWEAT-WHITE-v1.jpg", "back": "BLANK-M-CREW-SWEAT-WHITE-BACK-v1.jpg"},
     "w-sweatshirt": {"front": "BLANK-W-CREW-SWEAT-WHITE-v1.jpg", "back": "BLANK-W-CREW-SWEAT-WHITE-BACK-v1.jpg"},
 }
