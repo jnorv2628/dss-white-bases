@@ -85,7 +85,11 @@ def build(design, handle, views, colors, ink, garment="hoodie", out_root="mockup
             art_path = os.path.join(ROOT, "art", design, f"{v}.png")
             if not os.path.exists(art_path):
                 print(f"skip {v}: no {art_path}"); continue
-            base_file = BASES[garment][v]; cfg = placements[base_file]
+            base_file = BASES[garment][v]; cfg = dict(placements[base_file])
+            ov_path = os.path.join(ROOT, "art", design, "placement.json")   # per-design print box wins
+            if os.path.exists(ov_path):
+                ov = json.load(open(ov_path))
+                if v in ov: cfg[v] = ov[v]
             base_path = os.path.join(ROOT, "img", base_file)
             img = Image.open(base_path).convert("RGB")
             mask = get_mask(base_path, cfg)
