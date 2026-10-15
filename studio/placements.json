@@ -1,5 +1,199 @@
 {
-  "_note": "Per white base photo: crop box (drops the baked-in label), and the print box for the graphic: cx = horizontal center px, top = top edge px, w = print width px. Tune once per base, reuse for every design.",
-  "BLANK-M-HOODIE-WHITE-BACK-v1.jpg":  {"crop": [0, 0, 1408, 1690], "ymax": 1690, "back":  {"cx": 698, "top": 690, "w": 700}},
-  "BLANK-M-HOODIE-WHITE-v1.jpg":       {"crop": [0, 0, 1408, 1565], "ymax": 1565, "front": {"cx": 560, "top": 560, "w": 70}}
+ "_note": "Per white base photo: crop box (drops the baked-in label), and the print box for the graphic: cx = horizontal center px, top = top edge px, w = print width px. Tune once per base, reuse for every design.",
+ "BLANK-M-HOODIE-WHITE-BACK-v1.jpg": {
+  "crop": [
+   0,
+   0,
+   1408,
+   1690
+  ],
+  "ymax": 1690,
+  "back": {
+   "cx": 698,
+   "top": 690,
+   "w": 700
+  }
+ },
+ "BLANK-M-HOODIE-WHITE-v1.jpg": {
+  "crop": [
+   0,
+   0,
+   1408,
+   1565
+  ],
+  "ymax": 1565,
+  "front": {
+   "cx": 560,
+   "top": 560,
+   "w": 70
+  }
+ },
+ "BLANK-M-ZIP-HOODIE-WHITE-BACK-v1.jpg": {
+  "crop": [
+   0,
+   0,
+   1408,
+   1660
+  ],
+  "ymax": 1690,
+  "back": {
+   "cx": 698,
+   "top": 700,
+   "w": 640
+  }
+ },
+ "BLANK-M-TEE-CREW-WHITE-BACK-v1.jpg": {
+  "crop": [
+   0,
+   0,
+   1408,
+   1690
+  ],
+  "ymax": 1690,
+  "back": {
+   "cx": 700,
+   "top": 430,
+   "w": 600
+  }
+ },
+ "BLANK-W-TEE-CLASSIC-WHITE-BACK-v1.jpg": {
+  "crop": [
+   0,
+   0,
+   1408,
+   1660
+  ],
+  "ymax": 1690,
+  "back": {
+   "cx": 700,
+   "top": 430,
+   "w": 540
+  }
+ },
+ "BLANK-M-LS-CREW-WHITE-BACK-v1.jpg": {
+  "crop": [
+   0,
+   0,
+   1408,
+   1690
+  ],
+  "ymax": 1690,
+  "back": {
+   "cx": 700,
+   "top": 430,
+   "w": 600
+  }
+ },
+ "BLANK-M-CREW-SWEAT-WHITE-BACK-v1.jpg": {
+  "crop": [
+   0,
+   0,
+   1408,
+   1690
+  ],
+  "ymax": 1690,
+  "back": {
+   "cx": 700,
+   "top": 470,
+   "w": 620
+  }
+ },
+ "BLANK-W-CREW-SWEAT-WHITE-BACK-v1.jpg": {
+  "crop": [
+   0,
+   0,
+   1408,
+   1690
+  ],
+  "ymax": 1690,
+  "back": {
+   "cx": 700,
+   "top": 470,
+   "w": 560
+  }
+ },
+ "BLANK-M-ZIP-HOODIE-WHITE-v1.jpg": {
+  "crop": [
+   0,
+   0,
+   1408,
+   1690
+  ],
+  "ymax": 1690,
+  "front": {
+   "cx": 560,
+   "top": 520,
+   "w": 70
+  }
+ },
+ "BLANK-M-TEE-CREW-WHITE-v1.jpg": {
+  "crop": [
+   0,
+   0,
+   1408,
+   1690
+  ],
+  "ymax": 1690,
+  "front": {
+   "cx": 560,
+   "top": 520,
+   "w": 70
+  }
+ },
+ "BLANK-W-TEE-CLASSIC-WHITE-v1.jpg": {
+  "crop": [
+   0,
+   0,
+   1408,
+   1690
+  ],
+  "ymax": 1690,
+  "front": {
+   "cx": 560,
+   "top": 520,
+   "w": 70
+  }
+ },
+ "BLANK-M-LS-CREW-WHITE-v1.jpg": {
+  "crop": [
+   0,
+   0,
+   1408,
+   1690
+  ],
+  "ymax": 1690,
+  "front": {
+   "cx": 560,
+   "top": 520,
+   "w": 70
+  }
+ },
+ "BLANK-M-CREW-SWEAT-WHITE-v1.jpg": {
+  "crop": [
+   0,
+   0,
+   1408,
+   1690
+  ],
+  "ymax": 1690,
+  "front": {
+   "cx": 560,
+   "top": 520,
+   "w": 70
+  }
+ },
+ "BLANK-W-CREW-SWEAT-WHITE-v1.jpg": {
+  "crop": [
+   0,
+   0,
+   1408,
+   1690
+  ],
+  "ymax": 1690,
+  "front": {
+   "cx": 560,
+   "top": 520,
+   "w": 70
+  }
+ }
 }
