@@ -1,2 +1,5 @@
 __pycache__/
 *.pyc
+
+# raw art stays out of the public repo (it lives in the private studio repo)
+art/

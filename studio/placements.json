@@ -1,0 +1,5 @@
+{
+  "_note": "Per white base photo: crop box (drops the baked-in label), and the print box for the graphic: cx = horizontal center px, top = top edge px, w = print width px. Tune once per base, reuse for every design.",
+  "BLANK-M-HOODIE-WHITE-BACK-v1.jpg":  {"crop": [0, 0, 1408, 1690], "ymax": 1690, "back":  {"cx": 698, "top": 690, "w": 700}},
+  "BLANK-M-HOODIE-WHITE-v1.jpg":       {"crop": [0, 0, 1408, 1565], "ymax": 1565, "front": {"cx": 560, "top": 560, "w": 70}}
+}
