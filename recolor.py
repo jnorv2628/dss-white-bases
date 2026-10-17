@@ -4,7 +4,7 @@
   python recolor.py --in white-front.jpg --colors BLK,BNE,OLV,PLM --out out/colors
   python recolor.py --in white-front.jpg --colors ALL --out out/colors
 
-How it works: finds the garment (everything that is not the #E9E9E7 backdrop), keeps all of the
+How it works: finds the garment (everything that is not the #E9E4D8 backdrop), keeps all of the
 original shading, folds and texture, and tints the garment to the exact color-master hex.
 The backdrop and soft floor shadow are left untouched. A mask preview is written next to the
 outputs so you can check the cut-out before you use the files.

@@ -3,7 +3,7 @@
 DSS MOCKUP COMMAND
 ==================
 One command -> consistent mockup prompts for any DSS item, in any color(s).
-Same standard every time (DSS-UNIFORMITY-SPEC, v3): neutral gray #E9E9E7 backdrop,
+Same standard every time (DSS-UNIFORMITY-SPEC, v3): warm cream-greige #E9E4D8 backdrop,
 soft light from above, graphics on the BACK, front clean with one tonal Frenchie.
 
 Examples
@@ -25,7 +25,7 @@ import argparse, csv, os, sys
 
 # ------------------------------------------------------------------ STANDARD (edit here only)
 VER = "v3"
-BACKDROP_HEX = "#E9E9E7"
+BACKDROP_HEX = "#E9E4D8"
 BG_SHORT = f"neutral light-gray {BACKDROP_HEX} background with no color cast"
 BACKDROP = (f"plain neutral light-gray seamless studio background, solid {BACKDROP_HEX}, no gradient, "
             "true neutral white balance with no blue cast and no warm or cream cast")

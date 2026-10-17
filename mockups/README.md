@@ -9,6 +9,6 @@ One folder per product, named exactly like the Shopify product handle. Files ins
                              05-pair-<COLOR>.jpg      (human + dog together)
 
 Colors use the color-master codes (BLK, WHT, BNE, ESP, CHR, OLV, PLM, WIN, BLS, ...).
-Square or 4:5 portrait, at least 1600 px on the long side, backdrop #E9E9E7.
+Square or 4:5 portrait, at least 1600 px on the long side, warm backdrop #E9E4D8.
 
 Only DSS-made images go here (this repo is public). Never supplier photos or anything showing a supplier label.

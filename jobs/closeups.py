@@ -6,8 +6,8 @@ Output filename code:  <handle>__<SHOT>__v1.jpg   -> attach script parses handle
 import csv, os, sys
 R = os.path.dirname(os.path.abspath(__file__)); ROOT = os.path.dirname(R)
 B = "blanks/white/"
-STD = ("Same exact product, same color, plain neutral light-gray seamless studio background, solid #E9E9E7, no gradient, "
-       "true neutral white balance with no blue cast and no warm or cream cast, soft even light from above, soft contact shadow. "
+STD = ("Same exact product, same color, plain warm cream-greige seamless studio background, solid #E9E4D8, no gradient, "
+       "warm natural light with no blue or gray cast, soft even light from above, soft contact shadow. "
        "No text, no caption, no label, no new logos.")
 
 # shot code -> (alt-text label, prompt body with {c} color and {m} material), gallery order

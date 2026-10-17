@@ -1,6 +1,6 @@
 # DSS mockup command
 
-One command, same standard every time (backdrop #E9E9E7, soft light, graphics on the BACK, front clean with one tonal Frenchie).
+One command, same standard every time (warm backdrop #E9E4D8, soft light, graphics on the BACK, front clean with one tonal Frenchie).
 No installs needed: Python 3 only.
 
 ## Run it anywhere
