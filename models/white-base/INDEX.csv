@@ -29,3 +29,6 @@ KB-TEE-WALK,models/white-base/KB-TEE-WALK.jpg,1408,1760,caption on image
 KB-TEE-SIDE,models/white-base/KB-TEE-SIDE.jpg,1408,1760,caption on image
 KG-TEE-SIDE,models/white-base/KG-TEE-SIDE.jpg,1408,1760,caption on image
 KG-TEE-WALK,models/white-base/KG-TEE-WALK.jpg,1408,1760,caption on image
+M-HOODIE-FRONT,models/white-base/M-HOODIE-FRONT.jpg,1408,1760,cropped from phone screenshot; upscaled from 922x1167; caption removed
+KB-TEE-FRONT,models/white-base/KB-TEE-FRONT.jpg,1408,1760,cropped from phone screenshot; upscaled from 922x1167; caption removed
+KG-TEE-FRONT,models/white-base/KG-TEE-FRONT.jpg,1408,1760,cropped from phone screenshot; upscaled from 922x1167; caption removed
