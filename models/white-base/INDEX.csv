@@ -1,0 +1,31 @@
+code,file,w,h,note
+M-TEE-FRONT,models/white-base/M-TEE-FRONT.jpg,1408,1760,caption on image
+W-H2-FRONT,models/white-base/W-H2-FRONT.jpg,1408,1760,caption on image; oversized hoodie fit
+W-HOODIE-TORSO,models/white-base/W-HOODIE-TORSO.jpg,1408,1760,caption on image
+W-HOODIE-SIDE,models/white-base/W-HOODIE-SIDE.jpg,1408,1760,caption on image
+W-HOODIE-BACK,models/white-base/W-HOODIE-BACK.jpg,1408,1760,caption on image
+W-HOODIE-WALK,models/white-base/W-HOODIE-WALK.jpg,1408,1760,caption on image
+W-HOODIE-FRONT,models/white-base/W-HOODIE-FRONT.jpg,1408,1760,caption on image
+W-TEE-TORSO,models/white-base/W-TEE-TORSO.jpg,1408,1760,caption on image
+W-TEE-SIDE,models/white-base/W-TEE-SIDE.jpg,1408,1760,caption on image
+W-TEE-WALK,models/white-base/W-TEE-WALK.jpg,1408,1760,caption on image
+W-TEE-FRONT,models/white-base/W-TEE-FRONT.jpg,1408,1760,"NO caption on image; code inferred (standing front, tee)"
+W-TEE-BACK,models/white-base/W-TEE-BACK.jpg,1408,1760,caption on image
+W-HOODIE-BACK-CLOSE,models/white-base/W-HOODIE-BACK-CLOSE.jpg,1280,1920,"NO caption; close crop, grey backdrop, different look from library"
+D-HOODIE-BACK,models/white-base/D-HOODIE-BACK.jpg,1920,1280,"dog (Frenchie) hoodie, NO caption; code inferred"
+D-HOODIE-FRONT,models/white-base/D-HOODIE-FRONT.jpg,1920,1280,"dog hoodie, NO caption; code inferred"
+D-TEE-FRONT,models/white-base/D-TEE-FRONT.jpg,1344,1792,"dog tee, NO caption; code inferred"
+D-HOODIE-SIDE,models/white-base/D-HOODIE-SIDE.jpg,1920,1280,"dog hoodie, NO caption; code inferred"
+D-HOODIE-FRONT-ALT,models/white-base/D-HOODIE-FRONT-ALT.jpg,1920,1280,"dog hoodie, second front take"
+KB-TEE-BACK,models/white-base/KB-TEE-BACK.jpg,1408,1760,caption on image
+KG-TEE-BACK,models/white-base/KG-TEE-BACK.jpg,1408,1760,caption on image
+M-HOODIE-BACK,models/white-base/M-HOODIE-BACK.jpg,1408,1760,caption on image
+M-HOODIE-SIDE,models/white-base/M-HOODIE-SIDE.jpg,1408,1760,caption on image
+M-TEE-TORSO,models/white-base/M-TEE-TORSO.jpg,1408,1760,caption on image
+M-TEE-WALK,models/white-base/M-TEE-WALK.jpg,1408,1760,caption on image
+M-TEE-SIDE,models/white-base/M-TEE-SIDE.jpg,1408,1760,caption on image
+M-TEE-BACK,models/white-base/M-TEE-BACK.jpg,1408,1760,caption on image
+KB-TEE-WALK,models/white-base/KB-TEE-WALK.jpg,1408,1760,caption on image
+KB-TEE-SIDE,models/white-base/KB-TEE-SIDE.jpg,1408,1760,caption on image
+KG-TEE-SIDE,models/white-base/KG-TEE-SIDE.jpg,1408,1760,caption on image
+KG-TEE-WALK,models/white-base/KG-TEE-WALK.jpg,1408,1760,caption on image
