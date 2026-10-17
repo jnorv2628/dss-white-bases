@@ -21,3 +21,7 @@ Close-up system (closeups.py):
 - `needs_base.csv` lists products with no white base yet (bucket hat, leg warmers, pair set).
 
 Never commit nudity or a third-party model photo. Never commit another company's name or label.
+
+Core colorways (James, 2026-10-17): Charcoal CHR #3E4044, Black BLK #141414, White WHT #F5F5F2, Bone BNE #E4DCCB,
+Hot Pink HOT #EE729D, Blush BLS #D2A6A7 (the "other pink"), Eggplant = Plum PLM #4B2A4F (store name "Eggplant").
+Fronts/backs in every color come from recolor.py on the white bases; Meta shoots close-ups once per product.
