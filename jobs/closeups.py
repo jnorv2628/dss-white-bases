@@ -78,7 +78,7 @@ def color(title):
     t = title.lower()
     if "noir" in t: return "Black #141414"
     if "pink" in t: return "Pink"
-    return None
+    return "Charcoal #3E4044"   # core colorways are CHR / BLK / WHT / BNE; close-ups are shot once in Charcoal, color versions come from recolor.py
 def material(title, default):
     t = title.lower()
     if "cashmere" in t: return "cashmere knit"
@@ -96,7 +96,7 @@ for p in rows:
     base, shots, mat = FAMS[f]
     if not os.path.exists(os.path.join(ROOT, base)): hold.append((p["handle"], "missing base " + base)); continue
     c = color(p["title"]); m = material(p["title"], mat)
-    status = "OPEN" if c or f in ("loafer","slipper","slide","harness") else "HOLD_COLOR"
+    status = "OPEN"
     for s in shots:
         n += 1
         out = f'{p["handle"]}__{s}__v1.jpg'
@@ -105,7 +105,7 @@ for p in rows:
         if f in ("loafer","slipper","slide","harness"): col = ""
         prompt = f"Image 1 is the product.{col} " + body.format(m=m, c=c or "") + " " + STD
         jobs.append(dict(job_id=f"CU{n:04d}", status=status, input_image=base, prompt=prompt, output_name=out,
-                         note=f'{p["title"]} | {label} | family={f}', handle=p["handle"], product_gid="gid://shopify/Product/"+p["product_id"], shot=s))
+                         note=f'{p["title"]} | {label} | family={f} | colorways=CHR,BLK,WHT,BNE (Claude recolors fronts/backs)', handle=p["handle"], product_gid="gid://shopify/Product/"+p["product_id"], shot=s))
         mp.append(dict(output_name=out, handle=p["handle"], product_gid="gid://shopify/Product/"+p["product_id"], shot=s,
                        gallery_order=order, alt=f'{p["title"]} — {label}'))
 H = ["job_id","status","input_image","prompt","output_name","note","handle","product_gid","shot"]
