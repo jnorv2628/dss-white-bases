@@ -9,9 +9,10 @@ def find(n):
         p = os.path.join(ROOT, d, n)
         if os.path.exists(p): return d + "/" + n
     raise SystemExit("missing base " + n)
-STD = ("Plain warm cream-greige seamless studio background, solid #E9E4D8, no gradient, warm natural light with no blue or gray cast, "
-       "soft even light from above, soft contact shadow. Flat lay, centered, product fills about 70 percent of the frame, 4:5 portrait. "
-       "No other text, no caption, no label, no new logos.")
+BG = ("Plain warm cream-greige seamless studio background, solid #E9E4D8, no gradient, warm natural light with no blue or gray cast, "
+      "soft even light from above, soft contact shadow.")
+FLAT = " Flat lay, centered, product fills about 70 percent of the frame, 4:5 portrait."
+TAIL = " No other text, no caption, no label, no new logos."
 BLK = "solid black #141414 (matte, true black, folds and texture still visible)"
 PRINT_COLOR = "white #F5F5F2"
 GID = lambda i: "gid://shopify/Product/" + str(i)
@@ -29,8 +30,8 @@ P = {
  "sheer":  ("butta-bodysuit-sheer-womens", 15399890813080, "Butta Bodysuit — Sheer — Women's"),
 }
 jobs = []   # dict(tier, key, shot, inputs[], prompt, order, label, shared_with)
-def J(tier, key, shot, inputs, prompt, order, label, shared=None, note=""):
-    jobs.append(dict(tier=tier, key=key, shot=shot, inputs=inputs, prompt=prompt + " " + STD, order=order, label=label, shared=shared or [], note=note))
+def J(tier, key, shot, inputs, prompt, order, label, shared=None, note="", flat=True):
+    jobs.append(dict(tier=tier, key=key, shot=shot, inputs=inputs, prompt=prompt + " " + BG + (FLAT if flat else " 4:5 portrait.") + TAIL, order=order, label=label, shared=shared or [], note=note))
 
 # ---------- SPONSOR SET (the ad) ----------
 TB, TF = find("BLANK-W-TANK-WHITE-BACK-v1.jpg"), find("BLANK-W-TANK-WHITE-v1.jpg")
@@ -44,7 +45,7 @@ J(1,"dog","SIDEPRINT",[DG],f"Image 1 is the dog top. Make the same dog top in {B
 J(1,"tank","SETFLAT",["jobs/done/advertise-here-tank-womens__BACK__v1.jpg","jobs/done/advertise-here-leggings-womens__BACK__v1.jpg","jobs/done/and-here-dog-suit__SIDEPRINT__v1.jpg"],
   "Image 1 is the black tank, image 2 the black leggings, image 3 the black dog top. Arrange all three as one neat flat-lay set: tank on top, leggings folded in thirds below it, dog top beside them, small even gaps, same prints as the images, nothing added, nothing changed.",6,"the set, flat lay",shared=["legg","capri","short","dog"],note="RUN AFTER jobs for tank BACK, legg BACK, dog SIDEPRINT are approved")
 J(1,"tank","MODELDOG",["jobs/done/advertise-here-tank-womens__BACK__v1.jpg","jobs/done/advertise-here-leggings-womens__BACK__v1.jpg","jobs/done/and-here-dog-suit__SIDEPRINT__v1.jpg"],
-  "Image 1 is the black tank, image 2 the black leggings, image 3 the black dog top. Studio fashion photograph shot from behind, mid-thigh to head: an athletic woman in her 30s, hair up, wearing the tank from image 1 and the leggings from image 2, standing relaxed. A French Bulldog sits at her feet, also seen from behind, wearing the dog top from image 3. Keep every print exactly as shown, readable, nothing added. 85mm lens, editorial e-commerce look.",7,"model with her dog, matching",shared=["legg","capri","short","dog"],note="RUN AFTER the three P1 jobs are approved")
+  "Image 1 is the black tank, image 2 the black leggings, image 3 the black dog top. Studio fashion photograph shot from behind, mid-thigh to head: an athletic woman in her 30s, hair up, wearing the tank from image 1 and the leggings from image 2, standing relaxed. A French Bulldog sits at her feet, also seen from behind, wearing the dog top from image 3. Keep every print exactly as shown, readable, nothing added. 85mm lens, editorial e-commerce look.",7,"model with her dog, matching",shared=["legg","capri","short","dog"],note="RUN AFTER the three P1 jobs are approved", flat=False)
 # P2 per product
 J(2,"tank","FRONT",[TF],f"Image 1 is the tank. Make the same tank in {BLK}, FRONT view, clean with no print, keep the ribbed knit and scoop neck from image 1.",1,"front view")
 J(2,"tank","TEXTURE",[TB],f"Image 1 is the tank. Tight macro close-up of the fine ribbed knit of this tank in {BLK}, filling the frame, rib and stitching visible, soft raking light.",3,"rib knit close-up")
@@ -81,7 +82,7 @@ for k,(base,desc,kind) in B.items():
     J(3,k,"DETAIL",[base],f"Image 1 is the product. Close-up of the seam and waistband or neckline construction of this {kind} in {BLK}, sharp focus, shallow depth of field.",4,"construction detail")
 # ---------- write ----------
 rows = []; maprows = []; n = 0
-jobs.sort(key=lambda j: (j["tier"], list(P).index(j["key"]), j["order"]))
+jobs.sort(key=lambda j: (j["tier"], 1 if "RUN AFTER" in j["note"] else 0, list(P).index(j["key"]), j["order"]))
 for j in jobs:
     n += 1; h, pid, title = P[j["key"]]
     out = f"{h}__{j['shot']}__v1.jpg"

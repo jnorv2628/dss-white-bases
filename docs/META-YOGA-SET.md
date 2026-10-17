@@ -13,32 +13,32 @@ SAVE AS: advertise-here-tank-womens__BACK__v1.jpg
 Image 1 is the tank. Make the same tank in solid black #141414 (matte, true black, folds and texture still visible), BACK view. Keep the ribbed knit, scoop back and straps exactly as image 1. Printed across the upper back in white #F5F5F2: the words ADVERTISE HERE in arched varsity block capitals, about 9 inches wide, centered 4 inches below the neckline. Nothing else on the garment. Plain warm cream-greige seamless studio background, solid #E9E4D8, no gradient, warm natural light with no blue or gray cast, soft even light from above, soft contact shadow. Flat lay, centered, product fills about 70 percent of the frame, 4:5 portrait. No other text, no caption, no label, no new logos.
 ```
 
-### YG0002  Advertise Here Tank — Women's | the set, flat lay | RUN AFTER jobs for tank BACK, legg BACK, dog SIDEPRINT are approved
-INPUT: jobs/done/advertise-here-tank-womens__BACK__v1.jpg + jobs/done/advertise-here-leggings-womens__BACK__v1.jpg + jobs/done/and-here-dog-suit__SIDEPRINT__v1.jpg
-SAVE AS: advertise-here-tank-womens__SETFLAT__v1.jpg
-```
-Image 1 is the black tank, image 2 the black leggings, image 3 the black dog top. Arrange all three as one neat flat-lay set: tank on top, leggings folded in thirds below it, dog top beside them, small even gaps, same prints as the images, nothing added, nothing changed. Plain warm cream-greige seamless studio background, solid #E9E4D8, no gradient, warm natural light with no blue or gray cast, soft even light from above, soft contact shadow. Flat lay, centered, product fills about 70 percent of the frame, 4:5 portrait. No other text, no caption, no label, no new logos.
-```
-
-### YG0003  Advertise Here Tank — Women's | model with her dog, matching | RUN AFTER the three P1 jobs are approved
-INPUT: jobs/done/advertise-here-tank-womens__BACK__v1.jpg + jobs/done/advertise-here-leggings-womens__BACK__v1.jpg + jobs/done/and-here-dog-suit__SIDEPRINT__v1.jpg
-SAVE AS: advertise-here-tank-womens__MODELDOG__v1.jpg
-```
-Image 1 is the black tank, image 2 the black leggings, image 3 the black dog top. Studio fashion photograph shot from behind, mid-thigh to head: an athletic woman in her 30s, hair up, wearing the tank from image 1 and the leggings from image 2, standing relaxed. A French Bulldog sits at her feet, also seen from behind, wearing the dog top from image 3. Keep every print exactly as shown, readable, nothing added. 85mm lens, editorial e-commerce look. Plain warm cream-greige seamless studio background, solid #E9E4D8, no gradient, warm natural light with no blue or gray cast, soft even light from above, soft contact shadow. Flat lay, centered, product fills about 70 percent of the frame, 4:5 portrait. No other text, no caption, no label, no new logos.
-```
-
-### YG0004  Advertise Here Leggings — Women's | back view with waistband print
+### YG0002  Advertise Here Leggings — Women's | back view with waistband print
 INPUT: blanks/white/BLANK-W-LEGGING-WHITE-BACK-v1.jpg
 SAVE AS: advertise-here-leggings-womens__BACK__v1.jpg
 ```
 Image 1 is the leggings. Make the same leggings in solid black #141414 (matte, true black, folds and texture still visible), BACK view, laid straight and flat, full length. The fold-over waistband carries white #F5F5F2 small block capitals reading ADVERTISE HERE across its center back, about 6 inches wide. Nothing else printed. Plain warm cream-greige seamless studio background, solid #E9E4D8, no gradient, warm natural light with no blue or gray cast, soft even light from above, soft contact shadow. Flat lay, centered, product fills about 70 percent of the frame, 4:5 portrait. No other text, no caption, no label, no new logos.
 ```
 
-### YG0005  And Here... — Dog Suit | side-panel print
+### YG0003  And Here... — Dog Suit | side-panel print
 INPUT: blanks/white/BLANK-DOG-TOP-WHITE-v1.jpg
 SAVE AS: and-here-dog-suit__SIDEPRINT__v1.jpg
 ```
 Image 1 is the dog top. Make the same dog top in solid black #141414 (matte, true black, folds and texture still visible). white #F5F5F2 lettering reading AND HERE... printed small on the side body panel, running along the length of the panel, about 4 inches long. Keep the collar, sleeves and hem exactly as image 1. Nothing else printed. Plain warm cream-greige seamless studio background, solid #E9E4D8, no gradient, warm natural light with no blue or gray cast, soft even light from above, soft contact shadow. Flat lay, centered, product fills about 70 percent of the frame, 4:5 portrait. No other text, no caption, no label, no new logos.
+```
+
+### YG0004  Advertise Here Tank — Women's | the set, flat lay | RUN AFTER jobs for tank BACK, legg BACK, dog SIDEPRINT are approved
+INPUT: jobs/done/advertise-here-tank-womens__BACK__v1.jpg + jobs/done/advertise-here-leggings-womens__BACK__v1.jpg + jobs/done/and-here-dog-suit__SIDEPRINT__v1.jpg
+SAVE AS: advertise-here-tank-womens__SETFLAT__v1.jpg
+```
+Image 1 is the black tank, image 2 the black leggings, image 3 the black dog top. Arrange all three as one neat flat-lay set: tank on top, leggings folded in thirds below it, dog top beside them, small even gaps, same prints as the images, nothing added, nothing changed. Plain warm cream-greige seamless studio background, solid #E9E4D8, no gradient, warm natural light with no blue or gray cast, soft even light from above, soft contact shadow. Flat lay, centered, product fills about 70 percent of the frame, 4:5 portrait. No other text, no caption, no label, no new logos.
+```
+
+### YG0005  Advertise Here Tank — Women's | model with her dog, matching | RUN AFTER the three P1 jobs are approved
+INPUT: jobs/done/advertise-here-tank-womens__BACK__v1.jpg + jobs/done/advertise-here-leggings-womens__BACK__v1.jpg + jobs/done/and-here-dog-suit__SIDEPRINT__v1.jpg
+SAVE AS: advertise-here-tank-womens__MODELDOG__v1.jpg
+```
+Image 1 is the black tank, image 2 the black leggings, image 3 the black dog top. Studio fashion photograph shot from behind, mid-thigh to head: an athletic woman in her 30s, hair up, wearing the tank from image 1 and the leggings from image 2, standing relaxed. A French Bulldog sits at her feet, also seen from behind, wearing the dog top from image 3. Keep every print exactly as shown, readable, nothing added. 85mm lens, editorial e-commerce look. Plain warm cream-greige seamless studio background, solid #E9E4D8, no gradient, warm natural light with no blue or gray cast, soft even light from above, soft contact shadow. 4:5 portrait. No other text, no caption, no label, no new logos.
 ```
 
 ## P2 — rest of the Sponsor Set pages
