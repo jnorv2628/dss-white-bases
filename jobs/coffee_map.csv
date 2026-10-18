@@ -1,0 +1,32 @@
+output_name,handle,product_gid,shot,gallery_order,alt,also_handles
+coffee-shop-mocha-hoodie__FLAT__v1.jpg,coffee-shop-mocha-hoodie,,FLAT,1,"Mocha Hoodie — The Coffee Shop — back, with the matching dog hoodie",coffee-shop-dog-hoodie-latte=
+coffee-shop-espresso-hoodie__FLAT__v1.jpg,coffee-shop-espresso-hoodie,,FLAT,1,"Espresso Hoodie — The Coffee Shop — back, with the matching dog hoodie",
+coffee-shop-chai-hoodie__FLAT__v1.jpg,coffee-shop-chai-hoodie,,FLAT,1,"Chai Hoodie — The Coffee Shop — back, with the matching dog hoodie",
+coffee-shop-coffee-hoodie__FLAT__v1.jpg,coffee-shop-coffee-hoodie,,FLAT,1,"Coffee Hoodie — The Coffee Shop — back, with the matching dog hoodie",coffee-shop-dog-hoodie-pup-cup=
+coffee-shop-matcha-hoodie__FLAT__v1.jpg,coffee-shop-matcha-hoodie,,FLAT,1,"Matcha Hoodie — The Coffee Shop — back, with the matching dog hoodie",
+coffee-shop-iced-caramel-hoodie__FLAT__v1.jpg,coffee-shop-iced-caramel-hoodie,,FLAT,1,"Iced Caramel Hoodie — The Coffee Shop — back, with the matching dog hoodie",
+coffee-shop-mocha-hoodie__MODEL__v1.jpg,coffee-shop-mocha-hoodie,,MODEL,2,"Mocha Hoodie — The Coffee Shop — worn, with her dog",coffee-shop-dog-hoodie-latte=
+coffee-shop-espresso-hoodie__MODEL__v1.jpg,coffee-shop-espresso-hoodie,,MODEL,2,"Espresso Hoodie — The Coffee Shop — worn, with her dog",
+coffee-shop-chai-hoodie__MODEL__v1.jpg,coffee-shop-chai-hoodie,,MODEL,2,"Chai Hoodie — The Coffee Shop — worn, with her dog",
+coffee-shop-coffee-hoodie__MODEL__v1.jpg,coffee-shop-coffee-hoodie,,MODEL,2,"Coffee Hoodie — The Coffee Shop — worn, with her dog",coffee-shop-dog-hoodie-pup-cup=
+coffee-shop-matcha-hoodie__MODEL__v1.jpg,coffee-shop-matcha-hoodie,,MODEL,2,"Matcha Hoodie — The Coffee Shop — worn, with her dog",
+coffee-shop-iced-caramel-hoodie__MODEL__v1.jpg,coffee-shop-iced-caramel-hoodie,,MODEL,2,"Iced Caramel Hoodie — The Coffee Shop — worn, with her dog",
+coffee-shop-mocha-hoodie__FRONT__v1.jpg,coffee-shop-mocha-hoodie,,FRONT,3,Mocha Hoodie — The Coffee Shop — front,
+coffee-shop-espresso-hoodie__FRONT__v1.jpg,coffee-shop-espresso-hoodie,,FRONT,3,Espresso Hoodie — The Coffee Shop — front,
+coffee-shop-chai-hoodie__FRONT__v1.jpg,coffee-shop-chai-hoodie,,FRONT,3,Chai Hoodie — The Coffee Shop — front,
+coffee-shop-coffee-hoodie__FRONT__v1.jpg,coffee-shop-coffee-hoodie,,FRONT,3,Coffee Hoodie — The Coffee Shop — front,
+coffee-shop-matcha-hoodie__FRONT__v1.jpg,coffee-shop-matcha-hoodie,,FRONT,3,Matcha Hoodie — The Coffee Shop — front,
+coffee-shop-iced-caramel-hoodie__FRONT__v1.jpg,coffee-shop-iced-caramel-hoodie,,FRONT,3,Iced Caramel Hoodie — The Coffee Shop — front,
+coffee-shop-mocha-hoodie__TEXTURE__v1.jpg,coffee-shop-mocha-hoodie,,TEXTURE,5,Mocha Hoodie — The Coffee Shop — fabric close-up,coffee-shop-espresso-hoodie=;coffee-shop-chai-hoodie=;coffee-shop-coffee-hoodie=;coffee-shop-iced-caramel-hoodie=;coffee-shop-dog-hoodie-latte=;coffee-shop-dog-hoodie-pup-cup=
+coffee-shop-matcha-hoodie__TEXTURE__v1.jpg,coffee-shop-matcha-hoodie,,TEXTURE,5,Matcha Hoodie — The Coffee Shop — fabric close-up,
+coffee-shop-mocha-hoodie__DETAIL__v1.jpg,coffee-shop-mocha-hoodie,,DETAIL,4,Mocha Hoodie — The Coffee Shop — lettering detail,
+coffee-shop-espresso-hoodie__DETAIL__v1.jpg,coffee-shop-espresso-hoodie,,DETAIL,4,Espresso Hoodie — The Coffee Shop — lettering detail,
+coffee-shop-chai-hoodie__DETAIL__v1.jpg,coffee-shop-chai-hoodie,,DETAIL,4,Chai Hoodie — The Coffee Shop — lettering detail,
+coffee-shop-coffee-hoodie__DETAIL__v1.jpg,coffee-shop-coffee-hoodie,,DETAIL,4,Coffee Hoodie — The Coffee Shop — lettering detail,
+coffee-shop-matcha-hoodie__DETAIL__v1.jpg,coffee-shop-matcha-hoodie,,DETAIL,4,Matcha Hoodie — The Coffee Shop — lettering detail,
+coffee-shop-iced-caramel-hoodie__DETAIL__v1.jpg,coffee-shop-iced-caramel-hoodie,,DETAIL,4,Iced Caramel Hoodie — The Coffee Shop — lettering detail,
+coffee-shop-dog-hoodie-latte__BACK__v1.jpg,coffee-shop-dog-hoodie-latte,,BACK,1,"Dog Hoodie, Latte — The Coffee Shop — back",
+coffee-shop-dog-hoodie-latte__DETAIL__v1.jpg,coffee-shop-dog-hoodie-latte,,DETAIL,4,"Dog Hoodie, Latte — The Coffee Shop — lettering detail",
+coffee-shop-dog-hoodie-pup-cup__BACK__v1.jpg,coffee-shop-dog-hoodie-pup-cup,,BACK,1,"Dog Hoodie, Pup Cup — The Coffee Shop — back",
+coffee-shop-dog-hoodie-pup-cup__DETAIL__v1.jpg,coffee-shop-dog-hoodie-pup-cup,,DETAIL,4,"Dog Hoodie, Pup Cup — The Coffee Shop — lettering detail",
+coffee-shop-dog-hoodie-latte__FRONT__v1.jpg,coffee-shop-dog-hoodie-latte,,FRONT,2,Dog Hoodie — The Coffee Shop — front,coffee-shop-dog-hoodie-pup-cup=
